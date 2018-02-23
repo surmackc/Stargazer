@@ -1,0 +1,48 @@
+html {
+  font-size: 1rem; 
+}
+
+body {
+}
+
+.container {
+  max-width: 980px;
+  min-width: 350px;
+}
+
+.jumbotron {
+  background-color: cornflowerblue;
+}
+
+
+/*------- Media Queries ----------*/
+
+@media (min-width: 375px) {
+  html {
+    font-size: 1.2rem;
+  }
+  
+  .card-columns {
+    column-count: 1;
+  }
+}
+
+@media (min-width: 650px) {
+  html {
+    font-size: 1.4rem;
+  }
+  
+  .card-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 850px) {
+  html {
+    font-size: 1.6rem;
+  }
+
+  .card-columns {
+    column-count: 3;
+  }
+}
