@@ -12,16 +12,16 @@ if (process.env.JAWSDB_URL) {
     var sequelize = new Sequelize(process.env.JAWSDB_URL);
 
 } else {
-    var sequelize = new Sequelize(
-        "db_name",
-        process.env.MYSQL_USER,
-        process.env.MYSQL_PASSWORD,
-        {
-            host: process.env.MYSQL_HOST,
-            port: process.env.MYSQL_PORT,
-            dialect: "mysql"
-        }
-    );
+  var sequelize = new Sequelize(
+    "stargazer_db",
+    process.env.MYSQL_USER,
+    process.env.MYSQL_PASSWORD,
+    {
+      host: process.env.MYSQL_HOST,
+      port: process.env.MYSQL_PORT,
+      dialect: "mysql"
+    }
+  );
 }
 
 fs

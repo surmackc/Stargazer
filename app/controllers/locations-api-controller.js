@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = {
     
-    getLocations: function {
+    getLocations: function() {
         db.Locations
         .findAll()
         .then(function(result) {
