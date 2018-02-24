@@ -1,6 +1,6 @@
 const env = process.env.NODE_ENV || 'development';
 if (env !== 'production') {
-  require('dotenv').config();
+    require('dotenv').config();
 }
 const PORT = process.env.PORT || 3000;
 
@@ -59,8 +59,8 @@ app.use('/events', events);
 app.use('/locations', locations);
 //app.use('/user', user);
 
-db.sequelize.sync({}).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+db.sequelize.sync({}).then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
 });
