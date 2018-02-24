@@ -4,37 +4,6 @@ var keymaps = require( /*wherever our API keys are*/ );
 
 var geoData = {};
 
-function geolocate() {
-    console.log("geolocate");
-
-    if (navigator.geolocation) {
-
-        var geoLat, geoLng;
-
-        navigator.geolocation.getCurrentPosition(function (position) {
-
-            var geolocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            //put into search function
-
-            var circle = new google.maps.Circle({
-                center: geolocation,
-                radius: position.coords.accuracy
-            });
-
-            geoLat = geolocation.lat;
-            geoLng = geolocation.lng;
-
-            autocomplete.setBounds(circle.getBounds());
-
-            return geoLat, geoLng;
-        });
-    }
-};
-
 // Google Maps API
 // executes upon search submit
 // gets lat, lng, place_id
@@ -78,9 +47,39 @@ function geocode(address) {
     });
 };
 
+function geolocate() {
+    console.log("geolocate");
+
+    if (navigator.geolocation) {
+
+        var geoLat, geoLng;
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+            var geolocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            //put into search function
+
+            var circle = new google.maps.Circle({
+                center: geolocation,
+                radius: position.coords.accuracy
+            });
+
+            geoLat = geolocation.lat;
+            geoLng = geolocation.lng;
+
+            autocomplete.setBounds(circle.getBounds());
+
+            geocodeLatLong(geoLat, geoLng);
+        });
+    }
+};
+
 // takes in a lat, long to give us our geoData object
 function geocodeLatLong(lat, long) {
-    event.preventDefault();
 
     console.log("geocode: " + lat, long);
 
@@ -118,9 +117,7 @@ function geocodeLatLong(lat, long) {
     });
 };
 
-
 module.exports = {
     geocode,
-    geolocate,
-    geocodeLatLong
+    geolocate
 };

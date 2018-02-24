@@ -1,15 +1,35 @@
 var getUserLocation = require('./getUserLocation.js');
+var getGoodTimes = require('./getGoodTimes.js');
 
-userLocationData = {};
+userLocation = {
+    'lat': 0,
+    'lng': 0,
+    'place_id': 0,
+    'address': ''
+};
 
-$(document).ready(function() {
+$(document).ready(function () {
+    $('#address-submit').on('click', function () {
+        let address = $('#address-submit').val().trim();
+        userLocation = userLocation.geocode(address);
+        getData();
 
-  $('#address-submit').on('click', function() {
-    let address = $('#address-submit').val().trim();
-    userLocationData = userLocation.geocode(address);
-  });
+    });
 
-  $('#geolocate').on('click', function() {
+    $('#geolocate').on('click', function () {
+        userLocation = userLocation.geolocate();
+        userLocation = userLocation.geocode(address);
+        getData();
+    });
+});
 
-  });
-});     
+function getData() {
+    getGoodTimes(userLocation)
+    .then();
+    eventsRSS.get(userLocation)
+    .then();
+    eventsAPI.get(userLocation)
+    .then();
+    locationsAPI.get(userLocation)
+    .then();
+}
