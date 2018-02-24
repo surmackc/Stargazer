@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = {
     
-    getEvents: function {
+    getEvents: function() {
         db.Events
         .findAll()
         .then(function(result) {
