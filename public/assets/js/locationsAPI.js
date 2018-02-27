@@ -1,70 +1,73 @@
-$(document).ready(function() {
-
-  $.ajax({
-    url: '/locations',
-    type: 'GET'
-  }).then(
-    function() {
-      console.log("All rows retrieved");
-    }
-  );
-
-  $('.add').on('submit', function(event) {
-    event.preventDefault();
-    var newData = {
-      name: $('#input').val().trim()
-    };
-  
+function getLocations() {
     $.ajax({
-      url: '/locations',
-      type: 'POST',
-      data: JSON.stringify(newData),
-      contentType: 'application/json'
+        url: '/locations',
+        type: 'GET'
     }).then(
-      function() {
-        console.log('Added data item');
-        location.reload();
-      }
+        function () {
+            console.log("All rows retrieved");
+        }
     );
-  });
+}
 
-  $('.update').on('click', function(event) {
-    event.preventDefault();
-    id = $(this).data("id");
-    value = $(this).data("value");
-    action = $(this).data("action");
+$(document).ready(function () {
 
-    if (action === "++") {
-      value++;
-    } else if (action === "--") {
-      value--;
-    }
+    $('.add').on('submit', function (event) {
+        event.preventDefault();
+        var newData = {
+            name: $('#input').val().trim()
+        }
 
-    $.ajax({
-      url: '/locations/' + id,
-      type: 'PUT',
-      data: JSON.stringify({value}),
-      contentType: 'application/json'
-    }).then(
-      function() {
-        console.log('Updated id: ' + id);
-        location.reload();
-      }
-    );
-  });
+        $.ajax({
+            url: '/locations',
+            type: 'POST',
+            data: JSON.stringify(newData),
+            contentType: 'application/json'
+        }).then(
+            function () {
+                console.log('Added data item');
+                location.reload();
+            }
+        );
+    });
 
-  $('.delete').on('click', function(event) {
-    event.preventDefault();
-    id = $(this).data("id");
+    $('.update').on('click', function (event) {
+        event.preventDefault();
+        id = $(this).data("id");
+        value = $(this).data("value");
+        action = $(this).data("action");
 
-    $.ajax({
-      url: '/locations/' + id,
-      type: 'DELETE'
-    }).then(
-      function() {
-        console.log('Deleted id: ' + id);
-        location.reload();
-      }
-    );
-  });
+        if (action === "++") {
+            value++;
+        } else if (action === "--") {
+            value--;
+        }
+
+                
+        $.ajax({
+            url: '/locations/' + id,
+            type: 'PUT',
+            data: JSON.stringify({ value }),
+            contentType: 'application/json'
+        }).then(
+            function () {
+                console.log('Updated id: ' + id);
+                location.reload();
+            }
+        );
+    });
+
+    $('.delete').on('click', function (event) {
+        event.preventDefault();
+        id = $(this).data("id");
+
+        $.ajax({
+            url: '/locations/' + id,
+            type: 'DELETE'
+        }).then(
+            function () {
+                console.log('Deleted id: ' + id);
+                location.reload();
+            }
+        );
+    });
 });

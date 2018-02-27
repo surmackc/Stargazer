@@ -1,6 +1,3 @@
-var getUserLocation = require('./getUserLocation.js');
-var getGoodTimes = require('./getGoodTimes.js');
-
 userLocation = {
     'lat': 0,
     'lng': 0,
@@ -8,28 +5,30 @@ userLocation = {
     'address': ''
 };
 
-$(document).ready(function () {
-    $('#address-submit').on('click', function () {
-        let address = $('#address-submit').val().trim();
-        userLocation = userLocation.geocode(address);
-        getData();
-
+$(document).ready(function() {
+    console.log("starting main.js scripts");
+    $('#address-submit').on('click', function() {
+        event.preventDefault();
+        let address = $('#address-input').val().trim();
+        geocode(address)
+        .then(function(result) {
+            userLocation = result;
+            console.log(result);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
     });
 
-    $('#geolocate').on('click', function () {
-        userLocation = userLocation.geolocate();
-        userLocation = userLocation.geocode(address);
-        getData();
+    $('#geolocate').on('click', function() {
+        event.preventDefault();
+        geolocate()
+        .then(function(result) {
+            userLocation = result;
+            console.log(result);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
     });
 });
-
-function getData() {
-    getGoodTimes(userLocation)
-    .then();
-    eventsRSS.get(userLocation)
-    .then();
-    eventsAPI.get(userLocation)
-    .then();
-    locationsAPI.get(userLocation)
-    .then();
-}

@@ -15,11 +15,11 @@ router.post('/locations', function (req, res) {
 
     // check something in result
     // to decide if successful or not
-    if (/*some validation of result*/) {
-        res.send('POST succeeeded');
-    } else {
-        res.send('POST failed');
-    }
+    // if (/*some validation of result*/) {
+    //     res.send('POST succeeeded');
+    // } else {
+    //     res.send('POST failed');
+    // }
 });
 
 router.put('/locations/:id', function (req, res) {
