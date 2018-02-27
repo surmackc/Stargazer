@@ -17,7 +17,6 @@ function geocode(address) {
 function geolocate() {
     return new Promise(function(resolve, reject) {      
         if (navigator.geolocation) {
-            var geoLat, geoLng;
             navigator.geolocation.getCurrentPosition(function (position) {
                 var geolocation = {
                     lat: position.coords.latitude,

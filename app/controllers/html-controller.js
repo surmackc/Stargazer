@@ -56,11 +56,11 @@ function geocode(address) {
     });
 };
 
-function getGoodTimes(userLocationData) {
+function getGoodTimes(userLocation) {
     return new Promise(function(resolve, reject) {
         StargazingTime.getGoodTimes({
-            lat: userLocationData.lat,
-            lon: userLocationData.lon,
+            lat: userLocation.lat,
+            lon: userLocation.lng,
             apiKey: process.env.WEATHER_KEY
         })
         .then(function(results) {

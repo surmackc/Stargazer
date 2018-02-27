@@ -3,22 +3,28 @@ var router = express.Router();
 var controller = require('../controllers/html-controller.js');
 
 router.get('/getGoodTimes', function (req, res) {
+    console.log(req.query);
     var userLocation = req.query;
     // if GET URL looks like...
-    // stargazer.com/getGoodTimes?lat='###.######'?lon='###.######'?address='####'
+    // stargazer.com/getGoodTimes?lat='###.######'?lng='###.######'
     // req.query should look like...
     // {
     //     lat: ###.######,
-    //     lng: ###.######,
-    //     place_id: ###,
-    //     address: ''
+    //     lng: ###.######
     // }
 
-    var goodTimes = controller.getGoodTimes(userLocation);
-
-    res.json({
-        goodTimes
+    controller.getGoodTimes(userLocation)
+    .then(function(goodTimesArray) {
+        console.log(goodTimesArray);
+        res.send({
+            goodTimesArray
+        });
+    })
+    .catch(function(error) {
+        console.log(error);
     });
+
+
 });
 
 router.get('/geocode', function (req, res) {
