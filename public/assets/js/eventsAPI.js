@@ -1,5 +1,4 @@
-$(document).ready(function () {
-
+function getEvents() {
     $.ajax({
         url: '/events',
         type: 'GET'
@@ -8,6 +7,9 @@ $(document).ready(function () {
             console.log("All rows retrieved");
         }
     );
+}
+
+$(document).ready(function () {
 
     $('.add').on('submit', function (event) {
         event.preventDefault();

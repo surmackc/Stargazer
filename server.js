@@ -21,7 +21,6 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
 const db = require("./app/models/index.js");
 var models = require("./app/models");
 

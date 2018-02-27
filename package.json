@@ -31,6 +31,7 @@
     "mysql2": "^1.5.2",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
-    "sequelize": "^4.33.4"
+    "sequelize": "^4.33.4",
+    "stargazing-time": "^1.0.0"
   }
 }
