@@ -1,39 +1,32 @@
-var Sequelize = require("sequelize");
+module.exports = function(sequelize, Sequelize) {
 
-module.exports = function (sequelize, DataTypes) {
-    var Users = sequelize.define("Users", {
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 35],
-            }
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isEmail: true,
-            }
-        },
-        latitude: {
-            type: DataTypes.DECIMAL(10, 7),
-            allowNull: false,
-            defaultValue: 0
-        },
-        longitude: {
-            type: DataTypes.DECIMAL(10, 7),
-            allowNull: false,
-            defaultValue: 0
-        }
+  var User = sequelize.define('user', {
+    id: { autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER},
+    // firstname: { type: Sequelize.STRING,notEmpty: true},
+    // lastname: { type: Sequelize.STRING,notEmpty: true},
+    // username: {type:Sequelize.TEXT},
+    // about : {type:Sequelize.TEXT},
+    email: { type:Sequelize.STRING, validate: {isEmail:true} },
+    password : {type: Sequelize.STRING,allowNull: false }, 
+    last_login: {type: Sequelize.DATE},
+    latitude: {
+      type: Sequelize.DECIMAL(10,7),
+      allowNull: false,
+      defaultValue: 0
+    },
+    longitude: {
+      type: Sequelize.DECIMAL(10,7),
+      allowNull: false,
+      defaultValue: 0
+    },
+
+        status: {type: Sequelize.ENUM('active','inactive'),defaultValue:'active' }
+
     }, {
             freezeTableName: true,
             timestamps: false
         });
-    return Users;
-};
+
+  return User;
+
+}
