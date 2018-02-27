@@ -2,10 +2,14 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/html-controller.js');
 
+router.get('/', function(req, res) {
+    res.render('index', {title: 'Stargazer'});
+});
+
 router.get('/userLocation', function (req, res) {
     var inputLocation = req.query;
     // if GET URL looks like...
-    // stargazer.com/geocode?address=####&lat=###.#####&lng=###.#####
+    // stargazer.com/?address=####&lat=###.#####&lng=###.#####
     // req.query should look like...
     // {
     //     address: 'XXX',

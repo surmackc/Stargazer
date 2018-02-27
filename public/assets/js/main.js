@@ -45,7 +45,7 @@ var goodTimes = [
 $(document).ready(function() {
     let defaultLat = '37.5381861';
     let defaultLng = '-77.5224841';
-    getLocationData('', defaultLat, defaultLng);
+    // getLocationData('', defaultLat, defaultLng);    // Commenting this out until I need it
 
 
     $('#address-submit').on('click', function() {
