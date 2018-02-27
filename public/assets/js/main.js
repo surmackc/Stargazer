@@ -42,14 +42,16 @@ var goodTimes = [
     }
 ];
 
-
 $(document).ready(function() {
+    let defaultLat = '37.5381861';
+    let defaultLng = '-77.5224841';
+    getLocationData('', lat, lng);
+
+
     $('#address-submit').on('click', function() {
         event.preventDefault();
         let address = $('#address-input').val().trim();
-        let lat = 0;
-        let lng = 0;
-        getLocationData(address, lat, lng);
+        getLocationData(address, 0, 0);
     });
 
     $('#geolocate').on('click', function() {
@@ -59,7 +61,7 @@ $(document).ready(function() {
             let address = '';
             let lat = result.lat;
             let lng = result.lng;
-            getLocationData(address, lat, lng); 
+            getLocationData('', lat, lng); 
         })
         .catch(function(error) {
             console.log(error);
@@ -91,7 +93,9 @@ function getLocationData(address, lat, lng) {
         type: 'GET'
     }).done(function(result) {
         console.log(result);
-        userLocation = result;
+        userLocation = result.userLocation;
+        goodTimes = result.goodTimes;
+        RSSEvents = result.RSSEvents;
     });
 }
 
