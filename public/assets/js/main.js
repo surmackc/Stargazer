@@ -37,7 +37,7 @@ var goodTimes = [
         forecast: {
             // this has a bunch of weather stuff we may not use
         },
-        from: '2018-03-03T018:00:00:000Z',
+        from: '2018-03-03T18:00:00:000Z',
         to: '2018-03-03T21:00:00:000Z'
     }
 ];
@@ -45,7 +45,7 @@ var goodTimes = [
 $(document).ready(function() {
     let defaultLat = '37.5381861';
     let defaultLng = '-77.5224841';
-    getLocationData('', lat, lng);
+    getLocationData('', defaultLat, defaultLng);
 
 
     $('#address-submit').on('click', function() {

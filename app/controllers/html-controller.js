@@ -16,11 +16,13 @@ function getData(inputLocation) {
             data.userLocation = userLocation;
             Promise.all([
                 getGoodTimes(userLocation),
-                getRSSEvents(userLocation)
+                getRSSEvents(userLocation),
+                getRiseSetTimesByWeek(userLocation)
             ])
             .then(function(resultArray) {
                 data.goodTimes = resultArray[0];
                 data.RSSEvents = resultArray[1];
+                data.riseSetTimes = resultArray[2];
                 resolve(data);              
             })
             .catch(function(error) {
@@ -182,6 +184,50 @@ function getRSSEvents(userLocation) {
                 RSSEvents.push(item);
             }
             resolve(RSSEvents);
+        });
+    });
+}
+
+function getRiseSetTimesByWeek(userLocation) {
+    return new Promise(function(resolve, reject) {
+        var date = new Date();
+        var promises = [];
+        i=0
+        while(i < 5) {
+            date.setDate(date.getDate() + 1);
+            promises.push(getRiseSetTimesByDay(userLocation, date));
+            i++;
+        }
+        Promise.all(promises)
+        .then(function(results) {
+            resolve(results);
+        })
+        .catch(function(error) {
+            reject(error);
+        });
+    });
+}
+
+function getRiseSetTimesByDay(userLocation, date) {
+    return new Promise(function(resolve, reject) {
+        var coords = userLocation.lat + ',' + userLocation.lng;
+        var month = date.getMonth();
+        var day =  date.getDate();
+        var year = date.getFullYear();
+        var dateFormatted = month + '/' + day + '/' + year;
+        var queryURL = 'http://api.usno.navy.mil/rstt/oneday?date=';
+        queryURL += dateFormatted + '&coords=' + coords + '&tz=0';
+
+        request(queryURL, function(error, response, body) {
+            if (error) {
+                reject(error);
+            }
+            if (!body.error) {
+                resolve(JSON.parse(body));
+
+            } else {
+                reject(body.error);
+            }
         });
     });
 }
