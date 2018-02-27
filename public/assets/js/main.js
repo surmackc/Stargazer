@@ -1,9 +1,47 @@
-userLocation = {
+var userLocation = {
     'lat': 0,
     'lng': 0,
     'place_id': 0,
     'address': ''
 };
+
+// this usually has several results
+var RSSEvents = [
+    {
+        date: '2018-03-07T09:02:29.000Z', // UTC (aka GMT) timezone
+        link: 'https://in-the-sky.org//news.php?id=20180307_15_100',
+        title: '07 Mar 2018 (8 days away): Close approach of Moon',
+        description: '<p>The moon will pass within 15 degrees of one another<p>', //HTML tags included
+        // There is more stuff in here, but these are the main parts we will use
+    },
+    {
+        date: '2018-03-02T09:02:29.000Z',
+        link: 'https://in-the-sky.org//news.php?id=20180302_08_100',
+        title: '07 Mar 2018 (3 days away): Full Moon',
+        description: '<p>The moon will be visible for most of the night<p>'
+    }
+];
+
+// this can have 0 or more results
+// I usually only get one
+var goodTimes = [
+    {
+        forecast: {
+            // this has a bunch of weather stuff we may not use
+        },
+        from: '2018-02-28T03:00:00:000Z', // UTC (aka GMT) timezone
+        to: '2018-02-28T06:00:00:000Z'
+    },
+    {
+        
+        forecast: {
+            // this has a bunch of weather stuff we may not use
+        },
+        from: '2018-03-03T018:00:00:000Z',
+        to: '2018-03-03T21:00:00:000Z'
+    }
+];
+
 
 $(document).ready(function() {
     $('#address-submit').on('click', function() {
