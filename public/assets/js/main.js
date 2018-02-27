@@ -9,27 +9,19 @@ $(document).ready(function() {
     $('#address-submit').on('click', function() {
         event.preventDefault();
         let address = $('#address-input').val().trim();
-        geocode(address)
-        .then(function(result) {
-            userLocation = result.userLocation;
-            goodTimes = result.goodTimes;
-            console.log(result);
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
+        let lat = 0;
+        let lng = 0;
+        getLocationData(address, lat, lng);
     });
 
     $('#geolocate').on('click', function() {
         event.preventDefault();
         geolocate()
         .then(function(result) {
-            userLocation = result;
-            console.log(result);
-        })
-        .then(getGoodTimes)
-        .then(function(goodTimesArray) {
-            console.log(goodTimesArray);
+            let address = '';
+            let lat = result.lat;
+            let lng = result.lng;
+            getLocationData(address, lat, lng); 
         })
         .catch(function(error) {
             console.log(error);
@@ -37,17 +29,31 @@ $(document).ready(function() {
     });
 });
 
-function getGoodTimes() {
-    var queryURL = '/getGoodTimes?lat=' + userLocation.lat + '&lng=' + userLocation.lng;
-    // queryURL = encodeURI(queryURL);
-    console.log(queryURL);
-    return new Promise(function(resolve, reject) {
-        $.ajax({
-            url: queryURL,
-            type: 'GET'
-        }).done(function(goodTimesArray) {
-            resolve(goodTimesArray);
-        });
+function geolocate() {
+    return new Promise(function(resolve, reject) {      
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                resolve({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                });
+            });
+        }
+        else {
+            reject('Geolocate unsuccessful');
+        }
+    });
+};
+
+function getLocationData(address, lat, lng) {
+    let queryURL = '/userLocation?address=' + address + '&lat=' + lat + '&lng=' + lng;
+    queryURL - encodeURI(queryURL);
+    $.ajax({
+        url: queryURL,
+        type: 'GET'
+    }).done(function(result) {
+        console.log(result);
+        userLocation = result;
     });
 }
 
