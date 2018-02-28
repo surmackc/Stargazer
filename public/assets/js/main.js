@@ -176,7 +176,7 @@ function geolocate() {
 
 function getLocationData(address, lat, lng) {
     let queryURL = '/userLocation?address=' + address + '&lat=' + lat + '&lng=' + lng;
-    queryURL - encodeURI(queryURL);
+    queryURL = encodeURI(queryURL);
     $.ajax({
         url: queryURL,
         type: 'GET'
