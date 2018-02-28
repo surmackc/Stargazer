@@ -5,11 +5,115 @@
 </head>
 <body>
 <div class="container">
-
-    <%- include ./partials/user-index %>
-
-    <%- include ./partials/userLocation %>
-
+    <!-- Header Section -->
+    <div class="row" id="headerSection">
+        <div class="col-4" id="pageLogo">
+            <h1>STARGAZER</h1>
+        </div>
+        <div class="col-6 offset-1">
+            <form>
+                    <div id="locationField">
+                        <input id="address-input" type="text" placeholder="Address Search">
+                        <select id="source" name="source">
+                            <option>10 Miles</option>
+                            <option>20 Miles</option>
+                            <option>30 Miles</option>
+                            <option>40 Miles</option>
+                            <option>50 Miles</option>
+                            <option>60 Miles</option>
+                            <option>70 Miles</option>
+                            <option>80 Miles</option>
+                            <option>90 Miles</option>
+                            <option>100 Miles</option>
+                        </select>
+                        <button class="btn" id="address-submit" type="text"> Submit </button>
+                        <button class="btn" id="geolocate" type="text"> Geolocate </button>
+                    </div>
+                </form>
+    </div>
+    </div>
+    <!-- /Header Section -->
+    <!-- Buttons Map & Star Atlas, Location Search -->
+    <div class="row">
+            <div class="col-2" id="loginButtonCollapse">
+                    <a data-toggle="collapse" data-target="#loginCollapse" role="button" aria-expanded="true" aria-controls="loginCollapseExample" id="loginButtonCollapse">
+                        <h3><img class="" src=""> Login</h3>
+                    </a>
+                </div>
+        <div class="col-2" id="mapButtonCollapse">
+            <a data-toggle="collapse" data-target="#mapCollapse" role="button" aria-expanded="true" aria-controls="mapCollapseExample" id="mapButtonCollapse">
+                <h3><img class="buttonIcon" src="/assets/img/world_icon.svg" width="25px" height="25px"> Light Map</h3>
+            </a>
+        </div>
+        <div class="col-2" id="atlasButtonCollapse">
+            <a data-toggle="collapse" data-target="#atlasCollapse" role="button" aria-expanded="true" aria-controls="atlasCollapseExample" id="atlasButtonCollapse">
+                <h3><img class="buttonIcon" src="/assets/img/stars_map.svg"> Sky Atlas</h3>
+            </a>
+        </div>
+    </div>
+    <!-- /Buttons Map & Star Atlas, Location Search -->
+    <!-- Map & Atlas Collapse -->
+    <div class="row">
+            <div class="col-12">
+                    <div class="collapse hide" id="loginCollapse">
+                        <div id="loginSection" style="width:100%;height:600px;"></div>
+                    </div>
+            </div>
+        <div class="col-12">
+            <div class="collapse hide" id="mapCollapse">
+                <div id="mapBox">
+                    <div id='map' style='width: 100%; height: 600px; position: relative;'></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="collapse hide" id="atlasCollapse">
+                        <div id="starmap1" style="width:100%;height:600px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Map & Atlas Collapse -->
+    <!-- Veiwing Conditions, Weather, Moon & Sun Data -->
+    <div class="container contentContainer">
+        <div class="row">
+            <div class="col-6">
+                <div class="col-12 contentBox">
+                    <h2>Veiwing Conditions</h2>
+                    <div class="col-12" id="viewingTimes">
+                    </div>
+                    </div>
+                <div class="col-12 contentBox">
+                    <h2>Celestial Events</h2>
+                    <div class="col-12" id="celestialEvents">
+                    </div>
+                </div>
+            </div>
+                <div class="col-6">
+                    <h2>Current Moon Phase</h2>
+                    <div class="col-12" id="moonPhase">
+                    <img src="assets/img/moon.png" width="50%" >
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- /Veiwing Conditions, Weather, Moon & Sun Data -->
+    <!-- Dark Sky Spots & Events -->
+    <div class="container contentContainer">
+        <div class="row">
+            <div class="col-6 contentBox">
+                <h2>Dark Sky Spots</h2>
+                <div class="col-10" id="darkSkyLocations">         
+                </div>
+            </div>
+            <div class="col-6 contentBox">
+                <h2>Stargazing Events</h2>
+                    <div class="col-10" id="upcomingEvents">
+                    </div>
+            </div>
+        </div>
+        <!-- /Dark Sky Spots & Events -->
 </div>
 
     <%- include ./partials/scripts %>
