@@ -3,7 +3,7 @@ var router = express.Router();
 var controller = require('../controllers/html-controller.js');
 
 router.get('/', function(req, res) {
-    res.render('index', {title: 'Stargazer'});
+    res.render('index');
 });
 
 router.get('/userLocation', function (req, res) {

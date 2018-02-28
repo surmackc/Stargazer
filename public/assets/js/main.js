@@ -22,6 +22,54 @@ var RSSEvents = [
     }
 ];
 
+// array of data for next 5 days
+// only one day shown below as example
+var riseSetTimes = [
+    {
+        error: false,
+        dayofweek: 'Sunday',
+        day: 28,
+        month: 2,
+        year: 2018,
+        moondata: [
+            {
+                phen: 'U',
+                time: '01:57'
+            },
+            {
+                phen: 'S',
+                time: '09:16'
+            },
+            {
+                phen: 'R',
+                time: '19:37'
+            }
+        ],
+        sundata: [
+            {
+                phen: 'BC',
+                time: '11:49'
+            },
+            {
+                phen: 'R',
+                time: '12:17'
+            },
+            {
+                phen: 'U',
+                time: '17:2337'
+            },
+            {
+                phen: 'S',
+                time: '22:30'
+            },
+            {
+                phen: 'EC',
+                time: '22:58'
+            }
+        ]
+    }
+];
+
 // this can have 0 or more results
 // I usually only get one
 var goodTimes = [
@@ -132,11 +180,12 @@ function getLocationData(address, lat, lng) {
     $.ajax({
         url: queryURL,
         type: 'GET'
-    }).done(function (result) {
-        console.log(result);
-        userLocation = result.userLocation;
-        goodTimes = result.goodTimes;
-        RSSEvents = result.RSSEvents;
+    }).done(function (data) {
+        console.log(data);
+        userLocation = data.userLocation;
+        goodTimes = data.goodTimes;
+        RSSEvents = data.RSSEvents;
+        riseSetTimes = data.riseSetTimes;
     });
 }
 
