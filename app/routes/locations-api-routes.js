@@ -3,10 +3,10 @@ var router = express.Router();
 var controller = require('../controllers/locations-api-controller.js')
 
 
-router.get('/locations', function (req, res) {
-    var locations = controller.getLocations();
-    res.body(locations);
-});
+// router.get('/locations', function (req, res) {
+//     var locations = controller.getLocations();
+//     res.body(locations);
+// });
 
 router.post('/locations', function (req, res) {
     var result = controller.addLocation(

@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/events-api-controller.js')
+var controller = require('../controllers/events-api-controller.js');
 
 
-router.get('/events', function (req, res) {
-    var events = controller.getEvents();
-    res.body(events);
-});
+// router.get('/events', function (req, res) {
+//     var events = controller.getEvents();
+//     res.body(events);
+// });
 
 router.post('/events', function (req, res) {
     var result = controller.addEvent(

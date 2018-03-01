@@ -1,6 +1,8 @@
 const StargazingTime = require('stargazing-time');
 var FeedParser = require('feedparser');
 var request = require('request');
+var eventsController = require('../controllers/events-api-controller.js');
+var locationsController = require('../controllers/locations-api-controller.js');
 const keyMaps = process.env.MAPS_KEY;
 
 // Google Maps API
@@ -14,15 +16,21 @@ function getData(inputLocation) {
         getUserLocation(inputLocation)
         .then(function(userLocation) {
             data.userLocation = userLocation;
+            var latRange = [userLocation.lat - 0.5, userLocation.lat + 0.5];
+            var lngRange = [userLocation.lng - 0.5, userLocation.lng + 0.5];
             Promise.all([
                 getGoodTimes(userLocation),
                 getRSSEvents(userLocation),
-                getRiseSetTimesByWeek(userLocation)
+                getRiseSetTimesByWeek(userLocation),
+                eventsController.getEvents(latRange, lngRange),
+                locationsController.getLocations(latRange, lngRange),
             ])
             .then(function(resultArray) {
                 data.goodTimes = resultArray[0];
                 data.RSSEvents = resultArray[1];
                 data.riseSetTimes = resultArray[2];
+                data.APIEvents = resultArray[3];
+                data.APILocations = resultArray[4];
                 resolve(data);              
             })
             .catch(function(error) {

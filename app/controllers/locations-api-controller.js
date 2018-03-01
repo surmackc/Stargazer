@@ -1,12 +1,25 @@
 var db = require("../models");
+const Op = db.Sequelize.Op;
 
 module.exports = {
     
-    getLocations: function() {
-        db.Locations
-        .findAll()
-        .then(function(result) {
-            return result;
+    getLocations: function(latRange, lngRange) {
+        return new Promise(function(resolve, reject) {  
+            db.Locations
+            .findAll({
+                // where: {
+                //     [Op.and]: [ 
+                //         {latitude: {[Op.between]: latRange}},
+                //         {longitude: {[Op.between]: lngRange}}
+                //     ]
+                // }
+            })
+            .then(function(result) {
+                resolve(result);
+            })
+            .catch(function(error) {
+                reject(error);
+            });
         });
     },
 

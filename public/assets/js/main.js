@@ -117,7 +117,8 @@ $(document).ready(function () {
             });
     });
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoidHJpc3RhbmJoIiwiYSI6ImNqYmM5N20zbTFneWQzMm1yOTMzdnhwbjkifQ.LsCkehEVMnMWOEui5tZDCw';
+    mapboxgl.accessToken = 
+    'pk.eyJ1IjoidHJpc3RhbmJoIiwiYSI6ImNqYmM5N20zbTFneWQzMm1yOTMzdnhwbjkifQ.LsCkehEVMnMWOEui5tZDCw';
     var map = null;
 
     $("#mapButtonCollapse").click(function () {
@@ -187,6 +188,8 @@ function getLocationData(address, lat, lng) {
         goodTimes = data.goodTimes;
         RSSEvents = data.RSSEvents;
         riseSetTimes = data.riseSetTimes;
+        APIEvents = data.APIEvents;
+        APILocations = data.APILocations;
         getViewingConditions(goodTimes);
         viewRSS(RSSEvents);
     });

@@ -30,6 +30,13 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DECIMAL(10, 7),
             allowNull: false,
             defaultValue: 0
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 100],
+            }
         }
     }, {
             freezeTableName: true,

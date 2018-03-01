@@ -14,17 +14,17 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 35],
             }
         },
-        date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: Sequelize.NOW,
-        },
         description: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 150],
             }
+        },
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Sequelize.NOW,
         },
         latitude: {
             type: DataTypes.DECIMAL(10, 7),
@@ -35,6 +35,13 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DECIMAL(10, 7),
             allowNull: false,
             defaultValue: 0
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 100],
+            }
         }
     }, {
             freezeTableName: true,
