@@ -89,3 +89,28 @@ h3 {
     height: 600px;
     border-radius: 7px;
 }
+
+/* @media */
+/* Small */
+@media (max-width: 768px) {
+    .buttonIcon{
+        margin-right: .25rem;
+        width: 25px;
+        height: 25px;
+    } 
+    #mapButtonCollapse, #atlasButtonCollapse, #loginButtonCollapse {
+        margin-left: .25rem;
+    }
+    h3 {
+        font-size: 18px;
+    }
+}
+@media (max-width: 576px) { 
+    #mapButtonCollapse, #atlasButtonCollapse, #loginButtonCollapse {
+        margin: .25rem;
+    }
+    h3 {
+        font-size: 24px;
+    }
+
+}
