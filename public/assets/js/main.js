@@ -100,6 +100,7 @@ $(document).ready(function () {
         event.preventDefault();
         let address = $('#address-input').val().trim();
         getLocationData(address, 0, 0);
+        console.log(address);
     });
 
     $('#geolocate').on('click', function () {
@@ -186,6 +187,7 @@ function getLocationData(address, lat, lng) {
         goodTimes = data.goodTimes;
         RSSEvents = data.RSSEvents;
         riseSetTimes = data.riseSetTimes;
+        getViewingConditions(goodTimes);
     });
 }
 

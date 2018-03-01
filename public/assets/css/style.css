@@ -64,6 +64,10 @@ h3 {
     height: 6rem;
     border-radius: 7px;  
 }
+
+#viewingTimes {
+    display: inline-table;
+}
 .buttonIcon{
     margin-right: .5rem;
     width: 30px;
