@@ -26,21 +26,15 @@
     <!-- Buttons Map & Star Atlas, Location Search -->
     <div class="container">
         <div class="row">
-                <div class="col-sm-3 col-md-2" id="loginButtonCollapse">
-                        <a data-toggle="collapse" data-target="#loginCollapse" role="button" aria-expanded="true" aria-controls="loginCollapseExample" id="loginButtonCollapse">
-                            <h3><img class="" src=""> Login</h3>
-                        </a>
-                    </div>
-            <div class="col-sm-4 col-md-4 col-lg-3" id="mapButtonCollapse">
-                <a data-toggle="collapse" data-target="#mapCollapse" role="button" aria-expanded="true" aria-controls="mapCollapseExample" id="mapButtonCollapse">
-                    <h3><img class="buttonIcon" src="/assets/img/world_icon.svg" width="25px" height="25px"> Light Map</h3>
-                </a>
-            </div>
-            <div class="col-sm-4 col-md-3 col-lg-3" id="atlasButtonCollapse">
-                <a data-toggle="collapse" data-target="#atlasCollapse" role="button" aria-expanded="true" aria-controls="atlasCollapseExample" id="atlasButtonCollapse">
-                    <h3><img class="buttonIcon" src="/assets/img/stars_map.svg"> Sky Atlas</h3>
-                </a>
-            </div>
+                <button type="button" class="btn btn-collapseButton" data-toggle="collapse" data-target="#loginCollapse" role="button" aria-expanded="true" aria-controls="loginCollapseExample" id="loginButtonCollapse">
+                            <img class="loginIcon" src="/assets/img/login.svg"> Login
+                </button>
+                <button type="button" class="btn btn-collapseButton" data-toggle="collapse" data-target="#mapCollapse" role="button" aria-expanded="true" aria-controls="mapCollapseExample" id="mapButtonCollapse">
+                            <img class="buttonIcon" src="/assets/img/world_icon.svg" width="25px" height="25px"> Light Map
+                </button>
+                <button type="button" class="btn btn-collapseButton" data-toggle="collapse" data-target="#atlasCollapse" role="button" aria-expanded="true" aria-controls="atlasCollapseExample" id="atlasButtonCollapse">
+                            <img class="buttonIcon" src="/assets/img/sky_atlas.svg"> Sky Atlas
+                </button>
         </div>
     </div>
     <!-- /Buttons Map & Star Atlas, Location Search -->
@@ -73,18 +67,18 @@
         <div class="row">
             <div class="col-sm-12 col-lg-6">
                 <div class="col-12 contentBox">
-                    <h2>Veiwing Conditions</h2>
+                    <h2 class="contentHeader"><img class="buttonIcon" src="/assets/img/view_conditions.svg"> Viewing Conditions</h2>
                     <div class="col-12" id="viewingTimes">
                     </div>
                     </div>
                 <div class="col-12 contentBox">
-                    <h2>Celestial Events</h2>
+                    <h2 class="contentHeader"><img class="buttonIcon" src="/assets/img/celestial_events.svg">Celestial Events</h2>
                     <div class="col-12" id="celestialEvents">
                     </div>
                 </div>
             </div>
                 <div class="col-sm-12 col-lg-6">
-                    <h2>Current Moon Phase</h2>
+                    <h2 class="contentHeader">Current Moon Phase</h2>
                     <div class="col-12" id="moonPhase">
                     <img src="assets/img/moon.png" width="50%" >
                     </div>
@@ -96,12 +90,12 @@
     <div class="container contentContainer">
         <div class="row">
             <div class="col-sm-12 col-lg-6 contentBox">
-                <h2>Dark Sky Spots</h2>
+                <h2 class="contentHeader"><img class="buttonIcon" src="/assets/img/dark_spots.svg">Dark Sky Spots</h2>
                 <div class="col-sm-12 col-lg-10" id="darkSkyLocations">         
                 </div>
             </div>
             <div class="col-sm-12 col-lg-6 contentBox">
-                <h2>Stargazing Events</h2>
+                <h2 class="contentHeader"><img class="buttonIcon" src="/assets/img/stargazing_events.svg">Stargazing Events</h2>
                     <div class="col-sm-12 col-lg-10" id="upcomingEvents">
                     </div>
             </div>

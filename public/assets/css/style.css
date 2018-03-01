@@ -1,4 +1,3 @@
-
 body{
     background: url(/assets/img/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -19,7 +18,7 @@ h1 {
 
 }
 h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', sans-serif;
     font-weight: 100;
     font-size: 28px;
     color: #ffffff;
@@ -33,84 +32,117 @@ h3 {
 #headerSection{
     margin-top: 1rem;
 }
+#pageLogo{
+    text-align: center;
+}
 #loginSection{
     padding-top: 1rem;
     color: #ffffff;
 }
-#map {
-    /* position:absolute;  */
-    top:0; 
-    bottom:0; 
-    width:100%;
-}
-#mapBox {
-    /* background-color: #cccccc; */
-}
 .contentBox {
     margin-top: 1rem;
 }
+.contentHeader{
+    padding-bottom: .5rem;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.500);
+}
 .contentContainer {
     margin-top: 1rem;
-   
     padding-bottom: 1rem;
     border-radius: 7px;
      background-color: rgba(6, 48, 59, 0.850);
-
 }
-
 #darkSkyLocations, #upcomingEvents, #celestialEvents, #viewingTimes   {
-    margin-top: 1rem;
-    background-color: #ffffff;
+    background-color: rgb(6, 48, 59);
     height: 6rem;
-    border-radius: 7px;  
+    border-radius: 3px;  
 }
-
 #viewingTimes, #celestialEvents {
     display: inline-table;
 }
 .buttonIcon{
     margin-right: .5rem;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
-#mapButtonCollapse, #atlasButtonCollapse, #loginButtonCollapse {
-    background: rgba(6, 48, 59, 0.850);
-    width: 100%;
-    margin-left: 1rem;
-    height: 4rem;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 10px;
-    padding-bottom: 10px;
+.loginIcon{
+    margin-right: .5rem;
+    width: 45px;   
+}
+.btn-collapseButton { 
+    color: #ffffff; 
+    background-color: #06303B; 
+    border: none ;
+    margin-right: 1rem;
+    height: 2.7rem;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 100;
+    line-height: 24px;
     cursor: pointer;
-}
+  } 
+   
+  .btn-collapseButton:hover, 
+  .btn-collapseButton:focus, 
+  .btn-collapseButton:active, 
+  .btn-collapseButton.active, 
+  .open .dropdown-toggle.btn-collapseButton { 
+    color: #ffffff; 
+    background-color: #24777A; 
+    border-color: ; 
+  } 
+   
+  .btn-collapseButton:active, 
+  .btn-collapseButton.active, 
+  .open .dropdown-toggle.btn-collapseButton { 
+    background-image: none; 
+  } 
 #mapCollapse, #atlasCollapse {
     width: 100%;
     height: 600px;
     border-radius: 7px;
 }
+#loginSection, #mapBox, #starmap1 {
+    margin-top: 1rem;
+}
 
 /* @media */
 /* Small */
 @media (max-width: 768px) {
+    .btn-collapseButton { 
+        font-size: 18px; 
+        margin-right: 1rem; 
+        margin:auto;
+        margin-top: 1rem;
+      } 
     .buttonIcon{
         margin-right: .25rem;
         width: 25px;
         height: 25px;
-    } 
-    #mapButtonCollapse, #atlasButtonCollapse, #loginButtonCollapse {
-        margin-left: .25rem;
     }
+    .loginIcon{
+        margin-right: .5rem;
+        width: 30px;   
+    } 
     h3 {
         font-size: 18px;
     }
 }
 @media (max-width: 576px) { 
-    #mapButtonCollapse, #atlasButtonCollapse, #loginButtonCollapse {
-        margin: .25rem;
-    }
     h3 {
         font-size: 24px;
     }
+    .buttonIcon{
+        margin-right: .25rem;
+        width: 20px;
+        height: 20px;
+    }
+    .btn-collapseButton { 
+        font-size: 16px; 
+        height: 2.5rem; 
+        margin:auto;
+        margin-top: 1rem;
+      } 
 
 }
