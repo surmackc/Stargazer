@@ -1,14 +1,3 @@
-function getLocations() {
-    $.ajax({
-        url: '/locations',
-        type: 'GET'
-    }).then(
-        function () {
-            console.log("All rows retrieved");
-        }
-    );
-}
-
 $(document).ready(function () {
 
     $('.add').on('submit', function (event) {
@@ -71,3 +60,25 @@ $(document).ready(function () {
         );
     });
 });
+
+function viewAPILocations(arr) {
+    arr.forEach(res => {
+
+        var viewDiv = $("<div>");
+        var titleDiv = $("<li>");
+        var descDiv = $("<li>");
+        var addressDiv = $("<li>");
+
+        viewDiv.addClass("row col-12");
+        viewDiv.data("id", res.id);
+        titleDiv.text("Title: " + res.title);
+        descDiv.text("Description: " + res.description);
+        addressDiv.text("Location: " + res.address);
+
+        viewDiv.append(titleDiv);
+        viewDiv.append(descDiv);
+        viewDiv.append(addressDiv);
+
+        $('#darkSkyLocations').append(viewDiv);
+    });
+}

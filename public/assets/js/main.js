@@ -192,6 +192,8 @@ function getLocationData(address, lat, lng) {
         APILocations = data.APILocations;
         getViewingConditions(goodTimes);
         viewRSS(RSSEvents);
+        viewAPIEvents(APIEvents);
+        viewAPILocations(APILocations);
     });
 }
 

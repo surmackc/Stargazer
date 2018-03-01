@@ -1,16 +1,4 @@
-function getEvents() {
-    $.ajax({
-        url: '/events',
-        type: 'GET'
-    }).then(
-        function () {
-            console.log("All rows retrieved");
-        }
-    );
-}
-
 $(document).ready(function () {
-
     $('.add').on('submit', function (event) {
         event.preventDefault();
         var newData = {
@@ -70,3 +58,28 @@ $(document).ready(function () {
         );
     });
 });
+
+function viewAPIEvents(arr) {
+    arr.forEach(res => {
+
+        var viewDiv = $("<div>");
+        var titleDiv = $("<li>");
+        var dateDiv = $("<li>");
+        var descDiv = $("<li>");
+        var addressDiv = $("<li>");
+
+        viewDiv.addClass("row col-12");
+        viewDiv.data("id", res.id);
+        titleDiv.text("Title: " + res.title);
+        dateDiv.text("Date: " + res.date);
+        descDiv.text("Description: " + res.description);
+        addressDiv.text("Location: " + res.address);
+
+        viewDiv.append(titleDiv);
+        viewDiv.append(dateDiv);
+        viewDiv.append(descDiv);
+        viewDiv.append(addressDiv);
+
+        $('#upcomingEvents').append(viewDiv);
+    });
+}
