@@ -188,6 +188,7 @@ function getLocationData(address, lat, lng) {
         RSSEvents = data.RSSEvents;
         riseSetTimes = data.riseSetTimes;
         getViewingConditions(goodTimes);
+        viewRSS(RSSEvents);
     });
 }
 

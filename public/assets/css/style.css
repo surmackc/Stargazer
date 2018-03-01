@@ -65,7 +65,7 @@ h3 {
     border-radius: 7px;  
 }
 
-#viewingTimes {
+#viewingTimes, #celestialEvents {
     display: inline-table;
 }
 .buttonIcon{
