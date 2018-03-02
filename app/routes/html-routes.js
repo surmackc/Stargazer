@@ -24,6 +24,8 @@ router.get('/userLocation', function (req, res) {
     })
     .catch(function(error) {
         console.log(error);
+        res.status(500);
+        res.send(error)
     });
 });
 
