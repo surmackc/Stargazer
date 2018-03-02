@@ -10,7 +10,7 @@ $(document).ready(function () {
     let defaultLng = '-77.5224841';
     var timezone = (new Date().getTimezoneOffset())/60;
 
-    getLocationData('', defaultLat, defaultLng);
+    getLocationData('', defaultLat, defaultLng, timezone);
 
 
     $('#address-submit').on('click', function () {

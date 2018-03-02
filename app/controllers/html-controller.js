@@ -221,6 +221,7 @@ function getRiseSetTimesByWeek(userLocation) {
 function getRiseSetTimesByDay(userLocation, date) {
     return new Promise(function(resolve, reject) {
         var timezone = userLocation.tz;
+        console.log(userLocation);
         var coords = userLocation.lat + ',' + userLocation.lng;
         var month = date.getMonth();
         var day =  date.getDate();
