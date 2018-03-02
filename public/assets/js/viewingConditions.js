@@ -30,6 +30,9 @@ function getViewingConditions(arr) {
         
         viewDiv.addClass("row col-12");
         viewDiv.addClass("viewCardClass");
+        cloudDiv.addClass("cloudClass")
+        descDiv.addClass("descClass")
+        fromDiv.addClass("fromClass")
         cloudDiv.text(cloudCoverage);
         descDiv.text(desc);
         fromDiv.text(convertedDate)

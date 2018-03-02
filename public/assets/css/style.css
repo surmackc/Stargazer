@@ -351,6 +351,14 @@ h3 {
   animation: spin 16s linear infinite reverse;
 }
 
+.cloudClass, .descClass, .fromClass {
+    margin: auto;
+}
+
+.fromClass {
+    margin-top: 20px;
+}
+
 
 /* Animations */ 
 
