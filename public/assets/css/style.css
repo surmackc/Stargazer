@@ -113,6 +113,28 @@ h3 {
 .viewCardClass {
     margin: auto;
 }
+.celEvent {
+    background: rgba(8, 59, 71, 0.85);
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    width: 80%;
+
+}
+#celEventTitle{
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 100;
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: .5rem;
+}
+#celEventDesc {
+    margin-left: 2rem;
+}
 
 /* @media */
 /* Small */
@@ -153,3 +175,5 @@ h3 {
       } 
 
 }
+
+
