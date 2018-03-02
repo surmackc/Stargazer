@@ -10,17 +10,21 @@ function getViewingConditions(arr) {
        
 
        
-        var resCloudCoverage = res.forecast.clouds.all
+        var resCloudCoverage = res.forecast.clouds.all;
         var resDesc = res.forecast.weather[0].description;
+        var resFrom = new Date(res.from);
+        
 
+        var convertedDate = "Date: " + resFrom.toDateString();
         var cloudCoverage = "Cloud coverage: " + res.forecast.clouds.all + "% ";
         var desc = "Conditions: " + res.forecast.weather[0].description;
 
         
         var image = $("<img>");
         var viewDiv = $("<div>");
-        var cloudDiv = $("<h4>");
-        var descDiv = $("<h4>");
+        var cloudDiv = $("<h3>");
+        var descDiv = $("<h3>");
+        var fromDiv = $("<h4>");
 
 
         
@@ -28,6 +32,7 @@ function getViewingConditions(arr) {
         viewDiv.addClass("viewCardClass");
         cloudDiv.text(cloudCoverage);
         descDiv.text(desc);
+        fromDiv.text(convertedDate)
 
         
 
@@ -58,7 +63,7 @@ function getViewingConditions(arr) {
         //     difficultyDiv.html('<h5><img src="assets/images/diffBlack30.svg" id="difficultyImg"></h5>');
         // }
 
-        
+        viewDiv.append(fromDiv)
         viewDiv.append(cloudDiv);
         viewDiv.append(descDiv);
 
