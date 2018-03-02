@@ -1,5 +1,13 @@
 function getViewingConditions(arr) {
-    arr.forEach(res => {
+    
+    
+
+        arr.forEach(res => {
+
+        if (res) {
+
+        // $('#viewingTimes').empty()
+
         var from = new Date(res.from);
         var to = new Date(res.to);
         var from = from.toDateString()
@@ -8,6 +16,7 @@ function getViewingConditions(arr) {
         var cloudCoverage = "Cloud coverage: " + res.forecast.clouds.all + "% ";
         var desc = "Conditions: " + res.forecast.weather[0].description;
 
+        
         var image = $("<img>");
         var viewDiv = $("<div>");
         var fromDiv = $("<li>");
@@ -15,12 +24,18 @@ function getViewingConditions(arr) {
         var cloudDiv = $("<li>");
         var descDiv = $("<li>");
 
-        // image.data("index", i);
+        // viewDiv.empty()
+
+
+        
         viewDiv.addClass("row col-12");
+        viewDiv.addClass("viewCardClass");
         fromDiv.text("From: " + from);
         toDiv.text("To: " + to);
         cloudDiv.text(cloudCoverage);
         descDiv.text(desc);
+
+        $(".viewCardClass").empty()
 
         // if (image.attr("src") === "") {
         //     image.attr("src", "assets/images/random-image.jpg");
@@ -54,6 +69,21 @@ function getViewingConditions(arr) {
 
         console.log(res)
 
+        } else {
+
+      var FailDiv = ("<div>");
+
+      FailDiv.text("Sorry, Couldn't get any results!")
+
+      $('#viewingTimes').append(FailDiv);
+
+    }
+
 
     });
+
+
+    
+
+    
 }
