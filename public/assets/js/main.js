@@ -5,97 +5,12 @@ var userLocation = {
     'address': ''
 };
 
-// this usually has several results
-var RSSEvents = [
-    {
-        date: '2018-03-07T09:02:29.000Z', // UTC (aka GMT) timezone
-        link: 'https://in-the-sky.org//news.php?id=20180307_15_100',
-        title: '07 Mar 2018 (8 days away): Close approach of Moon',
-        description: '<p>The moon will pass within 15 degrees of one another<p>', //HTML tags included
-        // There is more stuff in here, but these are the main parts we will use
-    },
-    {
-        date: '2018-03-02T09:02:29.000Z',
-        link: 'https://in-the-sky.org//news.php?id=20180302_08_100',
-        title: '07 Mar 2018 (3 days away): Full Moon',
-        description: '<p>The moon will be visible for most of the night<p>'
-    }
-];
-
-// array of data for next 5 days
-// only one day shown below as example
-var riseSetTimes = [
-    {
-        error: false,
-        dayofweek: 'Sunday',
-        day: 28,
-        month: 2,
-        year: 2018,
-        moondata: [
-            {
-                phen: 'U',
-                time: '01:57'
-            },
-            {
-                phen: 'S',
-                time: '09:16'
-            },
-            {
-                phen: 'R',
-                time: '19:37'
-            }
-        ],
-        sundata: [
-            {
-                phen: 'BC',
-                time: '11:49'
-            },
-            {
-                phen: 'R',
-                time: '12:17'
-            },
-            {
-                phen: 'U',
-                time: '17:2337'
-            },
-            {
-                phen: 'S',
-                time: '22:30'
-            },
-            {
-                phen: 'EC',
-                time: '22:58'
-            }
-        ]
-    }
-];
-
-// this can have 0 or more results
-// I usually only get one
-var goodTimes = [
-    {
-        forecast: {
-            // this has a bunch of weather stuff we may not use
-        },
-        from: '2018-02-28T03:00:00:000Z', // UTC (aka GMT) timezone
-        to: '2018-02-28T06:00:00:000Z'
-    },
-    {
-
-        forecast: {
-            // this has a bunch of weather stuff we may not use
-        },
-        from: '2018-03-03T18:00:00:000Z',
-        to: '2018-03-03T21:00:00:000Z'
-    }
-];
-
 $(document).ready(function () {
     let defaultLat = '37.5381861';
     let defaultLng = '-77.5224841';
     var timezone = (new Date().getTimezoneOffset())/60;
 
-    // getLocationData('', defaultLat, defaultLng);    // Commenting this out until I need it
+    getLocationData('', defaultLat, defaultLng);
 
 
     $('#address-submit').on('click', function () {
