@@ -52,11 +52,14 @@ h3 {
     border-radius: 7px;
      background-color: rgba(6, 48, 59, 0.850);
 }
-#darkSkyLocations, #upcomingEvents, #celestialEvents, #viewingTimes   {
-    background-color: rgba(255, 255, 255, 0.90);
-    height: 6rem;
+
+#darkSkyLocations, #upcomingEvents, #celestialEvents, #viewingTimes, #darkSkyLocations, #darkSkySpots   {
+    color: #ffffff;
+    background-color: rgba(6, 48, 59, 0.850);
+
     border-radius: 3px;  
 }
+
 #viewingTimes, #celestialEvents {
     display: inline-table;
 }

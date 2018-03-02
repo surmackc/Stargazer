@@ -13,7 +13,7 @@ if (process.env.JAWSDB_URL) {
 
 } else {
   var sequelize = new Sequelize(
-    "stargazer_db",
+    "stargazer",
     process.env.MYSQL_USER,
     process.env.MYSQL_PASSWORD,
     {
