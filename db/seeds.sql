@@ -1,6 +1,6 @@
 USE stargazer;
 
-INSERT INTO user (email, password, latitude, longitude)
+INSERT INTO users (email, password, latitude, longitude)
     VALUES 
     ('email@gmail.com', '$2a$08$BCbQdT5YHjLFsYIG94ZuAufB0guA2sjBZzehnlzoRAONr6dhTRI.S', '37.2222000', '-77.1111000'),
     ('email2@gmail.com', '$2a$08$BCbQdT5YHjLFsYIG94ZuAufB1guA2sjBZzehnlzoRAONr6dhTRI.S', '37.3333000', '-77.2222000'),
