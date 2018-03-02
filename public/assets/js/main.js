@@ -8,7 +8,7 @@ var userLocation = {
 $(document).ready(function () {
     let defaultLat = '37.5381861';
     let defaultLng = '-77.5224841';
-    var timezone = (new Date().getTimezoneOffset())/60;
+    var timezone = (new Date().getTimezoneOffset())/60*-1;
 
     getLocationData('', defaultLat, defaultLng, timezone);
 

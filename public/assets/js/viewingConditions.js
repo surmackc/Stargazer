@@ -10,19 +10,14 @@ function getViewingConditions(arr) {
             var resMain = res.forecast.weather[0].main
             var resFrom = new Date(res.from);
 
-            console.log(resMain)
-
-
             var convertedDate = "Date: " + resFrom.toDateString();
             var cloudCoverage = "Cloud coverage: " + res.forecast.clouds.all + "% ";
             var desc = "Conditions: " + res.forecast.weather[0].description;
-
 
             var viewDiv = $("<div>");
             var picDiv = $("<h3>");
             var descDiv = $("<h3>");
             var fromDiv = $("<h3>");
-
 
 
             viewDiv.addClass("row col-12");
@@ -32,7 +27,6 @@ function getViewingConditions(arr) {
             fromDiv.addClass("fromClass")
             descDiv.text(desc);
             fromDiv.text(convertedDate)
-
 
 
             if (resMain == "Clear") {
@@ -49,14 +43,11 @@ function getViewingConditions(arr) {
                 picDiv.html('Picture Unavailabe');
             }
 
-
             viewDiv.append(fromDiv);
             viewDiv.append(picDiv);
             viewDiv.append(descDiv);
 
             $('#viewingTimes').append(viewDiv);
-
-            console.log(res)
 
         })
     } else {

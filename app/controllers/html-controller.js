@@ -22,6 +22,7 @@ function getData(inputLocation) {
                 getGoodTimes(userLocation),
                 getRSSEvents(userLocation),
                 getRiseSetTimesByWeek(userLocation),
+                // change
                 eventsController.getEvents(latRange, lngRange),
                 locationsController.getLocations(latRange, lngRange),
             ])
@@ -204,7 +205,7 @@ function getRiseSetTimesByWeek(userLocation) {
         var promises = [];
         i=0
         while(i < 5) {
-            date.setDate(date.getDate() + 1);
+            date.setDate(date.getDate());
             promises.push(getRiseSetTimesByDay(userLocation, date));
             i++;
         }
@@ -218,17 +219,18 @@ function getRiseSetTimesByWeek(userLocation) {
     });
 }
 
+
 function getRiseSetTimesByDay(userLocation, date) {
     return new Promise(function(resolve, reject) {
         var timezone = userLocation.tz;
-        console.log(userLocation);
         var coords = userLocation.lat + ',' + userLocation.lng;
         var month = date.getMonth();
         var day =  date.getDate();
         var year = date.getFullYear();
-        var dateFormatted = month + '/' + day + '/' + year;
+        var dateFormatted = (month+1) + '/' + day + '/' + year;
         var queryURL = 'http://api.usno.navy.mil/rstt/oneday?date=';
         queryURL += dateFormatted + '&coords=' + coords + '&tz=' + timezone;
+        console.log(queryURL, "line 233");
 
         request(queryURL, function(error, response, body) {
             if (error) {

@@ -1,8 +1,8 @@
-function viewRiseSetTimes(arr) {
+function viewRiseSetTimes(res) {
     $('#moonPhaseText').empty();
 
-    var rise = arr[0].moondata[0].time;
-    var set = arr[0].moondata[2].time;
+    var rise = res[0].moondata[2].time;
+    var set = res[0].moondata[1].time;
 
     var viewDiv = $("<div>");
     var riseDiv = $("<h3>");
