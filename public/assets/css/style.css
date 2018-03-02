@@ -110,6 +110,10 @@ h3 {
     margin-top: 1rem;
 }
 
+.viewCardClass {
+    margin: auto;
+}
+
 /* @media */
 /* Small */
 @media (max-width: 768px) {

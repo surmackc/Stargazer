@@ -9,10 +9,10 @@ function getViewingConditions(arr) {
 
        
 
-        var from = new Date(res.from);
-        var to = new Date(res.to);
-        var from = from.toDateString()
-        var to = to.toDateString()
+        // var from = new Date(res.from);
+        // var to = new Date(res.to);
+        // var from = from.toDateString()
+        // var to = to.toDateString()
 
         var cloudCoverage = "Cloud coverage: " + res.forecast.clouds.all + "% ";
         var desc = "Conditions: " + res.forecast.weather[0].description;
@@ -20,10 +20,10 @@ function getViewingConditions(arr) {
         
         var image = $("<img>");
         var viewDiv = $("<div>");
-        var fromDiv = $("<li>");
-        var toDiv = $("<li>");
-        var cloudDiv = $("<li>");
-        var descDiv = $("<li>");
+        // var fromDiv = $("<li>");
+        // var toDiv = $("<li>");
+        var cloudDiv = $("<h4>");
+        var descDiv = $("<h4>");
 
         // viewDiv.empty()
 
@@ -31,8 +31,8 @@ function getViewingConditions(arr) {
         
         viewDiv.addClass("row col-12");
         viewDiv.addClass("viewCardClass");
-        fromDiv.text("From: " + from);
-        toDiv.text("To: " + to);
+        // fromDiv.text("From: " + from);
+        // toDiv.text("To: " + to);
         cloudDiv.text(cloudCoverage);
         descDiv.text(desc);
 
@@ -61,8 +61,8 @@ function getViewingConditions(arr) {
         //     difficultyDiv.html('<h5><img src="assets/images/diffBlack30.svg" id="difficultyImg"></h5>');
         // }
 
-        viewDiv.append(fromDiv);
-        viewDiv.append(toDiv);
+        // viewDiv.append(fromDiv);
+        // viewDiv.append(toDiv);
         viewDiv.append(cloudDiv);
         viewDiv.append(descDiv);
 
