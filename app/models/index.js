@@ -1,6 +1,5 @@
 'use strict';
 
-var mysql = require("mysql");
 var fs = require('fs');
 var path = require('path');
 var Sequelize = require('sequelize');
@@ -10,7 +9,7 @@ var db = {};
 // This assumes we will use JAWSDB
 // database connection on Heroku
 if (process.env.JAWSDB_URL) {
-    var sequelize = mysql.createConnection(process.env.JAWSDB_URL);
+    var sequelize = new Sequelize(process.env.JAWSDB_URL);
 
 } else {
   var sequelize = new Sequelize(
