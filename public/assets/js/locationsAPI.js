@@ -64,21 +64,32 @@ $(document).ready(function () {
 function viewAPILocations(arr) {
     arr.forEach(res => {
 
+        var cardDiv = $("<div>")
         var viewDiv = $("<div>");
-        var titleDiv = $("<li>");
-        var descDiv = $("<li>");
-        var addressDiv = $("<li>");
+        var titleDiv = $("<h5>");
+        var descDiv = $("<p>");
+        var addressDiv = $("<h6>");
+        var deleteLink = $("<a>");
 
-        viewDiv.addClass("row col-12");
-        viewDiv.data("id", res.id);
+        cardDiv.addClass("row col-12 card mb-3");
+        viewDiv.addClass("card-body");
+        titleDiv.addClass("card-title");
+        addressDiv.addClass("card-subtitle mb-2 text-muted");
+        descDiv.addClass("card-text");
+        deleteLink.attr("href", "");
+
         titleDiv.text("Title: " + res.title);
-        descDiv.text("Description: " + res.description);
         addressDiv.text("Location: " + res.address);
+        descDiv.text("Description: " + res.description);
+        deleteLink.data("id", res.id);
+        deleteLink.text("Delete");
 
         viewDiv.append(titleDiv);
-        viewDiv.append(descDiv);
         viewDiv.append(addressDiv);
+        viewDiv.append(descDiv);
+        viewDiv.append(deleteLink);
+        cardDiv.append(viewDiv);
 
-        $('#darkSkyLocations').append(viewDiv);
+        $('#darkSkyLocations').append(cardDiv);
     });
 }

@@ -62,24 +62,36 @@ $(document).ready(function () {
 function viewAPIEvents(arr) {
     arr.forEach(res => {
 
+        var cardDiv = $("<div>")
         var viewDiv = $("<div>");
-        var titleDiv = $("<li>");
-        var dateDiv = $("<li>");
-        var descDiv = $("<li>");
-        var addressDiv = $("<li>");
+        var titleDiv = $("<h5>");
+        var dateDiv = $("<h6>");
+        var descDiv = $("<p>");
+        var addressDiv = $("<h6>");
+        var deleteLink = $("<a>");
 
-        viewDiv.addClass("row col-12");
-        viewDiv.data("id", res.id);
+        cardDiv.addClass("row col-12 card mb-3");
+        viewDiv.addClass("card-body");
+        titleDiv.addClass("card-title");
+        dateDiv.addClass("card-subtitle mb-2 text-muted");
+        descDiv.addClass("card-text");
+        addressDiv.addClass("card-subtitle mt-2 text-muted");
+        deleteLink.attr("href", "");
+
         titleDiv.text("Title: " + res.title);
         dateDiv.text("Date: " + res.date);
         descDiv.text("Description: " + res.description);
         addressDiv.text("Location: " + res.address);
+        deleteLink.data("id", res.id);
+        deleteLink.text("Delete");
 
         viewDiv.append(titleDiv);
         viewDiv.append(dateDiv);
         viewDiv.append(descDiv);
         viewDiv.append(addressDiv);
+        viewDiv.append(deleteLink);
+        cardDiv.append(viewDiv);
 
-        $('#upcomingEvents').append(viewDiv);
+        $('#upcomingEvents').append(cardDiv);
     });
 }
