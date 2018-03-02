@@ -178,6 +178,7 @@ function geolocate() {
 };
 
 function getLocationData(address, lat, lng, timezone) {
+    console.log("getting data");
     let queryURL = '/userLocation?address=' + address + '&lat=' + lat + '&lng=' + lng + '&tz=' + timezone;
     queryURL = encodeURI(queryURL);
     $.ajax({

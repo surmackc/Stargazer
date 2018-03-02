@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/locations-api-controller.js')
 
-router.post('/locations', function (req, res) {
+router.post('/', function (req, res) {
     controller.addLocation(
         req.body
     );
@@ -16,7 +16,7 @@ router.post('/locations', function (req, res) {
     // }
 });
 
-router.delete('/locations/:id', function (req, res) {
+router.delete('/:id', function (req, res) {
     controller.deleteLocation(
         req.params.id
     ).then(function(result){

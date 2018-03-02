@@ -45,8 +45,9 @@ $(document).ready(function () {
 });
 
 function viewAPIEvents(arr) {
+    $('#upcomingEvents').empty();
+    
     arr.forEach(res => {
-
         var viewDiv = $("<div>");
         var titleDiv = $("<h5>");
         var dateDiv = $("<h6>");
@@ -80,8 +81,9 @@ function viewAPIEvents(arr) {
                 url: '/events/' + res.id,
                 type: 'DELETE'
             }).then(
-                function () {
-                    getLocationData('', userLocation.lat, userLocation.lng);
+                function (res) {
+                    console.log(res.body);
+                    getLocationData('', userLocation.lat, userLocation.lng, userLocation.tz);
                 }
             );
         });

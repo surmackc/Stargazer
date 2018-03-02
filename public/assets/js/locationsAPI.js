@@ -47,8 +47,9 @@ $(document).ready(function () {
 });
 
 function viewAPILocations(arr) {
-    arr.forEach(res => {
+    $('#darkSkyLocations').empty();
 
+    arr.forEach(res => {
         var viewDiv = $("<div>");
         var titleDiv = $("<h5>");
         var descDiv = $("<p>");
@@ -78,8 +79,9 @@ function viewAPILocations(arr) {
                 url: '/locations/' + res.id,
                 type: 'DELETE'
             }).then(
-                function () {
-                    getLocationData('', userLocation.lat, userLocation.lng);
+                function (res) {
+                    console.log(res.body);
+                    getLocationData('', userLocation.lat, userLocation.lng, userLocation.tz);
                 }
             );
         });
