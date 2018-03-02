@@ -1,12 +1,13 @@
 function getViewingConditions(arr) {
-    
+        
+        $('#viewingTimes').empty()
     
 
         arr.forEach(res => {
 
         if (res) {
 
-        // $('#viewingTimes').empty()
+       
 
         var from = new Date(res.from);
         var to = new Date(res.to);
@@ -35,7 +36,7 @@ function getViewingConditions(arr) {
         cloudDiv.text(cloudCoverage);
         descDiv.text(desc);
 
-        $(".viewCardClass").empty()
+        // $(".viewCardClass").empty()
 
         // if (image.attr("src") === "") {
         //     image.attr("src", "assets/images/random-image.jpg");

@@ -1,6 +1,12 @@
 function viewRSS(arr) {
+
+    $("#celestialEvents").empty()
+
     arr.forEach(res => {
         if (!res.title.includes("days ago")) {
+
+
+
             var title = res.title;
             var desc = res.description;
             var link = res.link;
