@@ -196,6 +196,7 @@ function getLocationData(address, lat, lng, timezone) {
         viewRSS(RSSEvents);
         viewAPIEvents(APIEvents);
         viewAPILocations(APILocations);
+        viewRiseSetTimes(riseSetTimes);
     });
 }
 
