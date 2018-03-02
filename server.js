@@ -11,10 +11,6 @@ const html = require('./app/routes/html-routes.js');
 const events = require('./app/routes/events-api-routes.js');
 const locations = require('./app/routes/locations-api-routes.js');
 
-
-//const locations = require('./app/routes/passport-routes.js');
-//const user = require('./routes/user-routes.js');
-
 var passport = require('passport');
 var flash    = require('connect-flash');
 var morgan       = require('morgan');
@@ -23,15 +19,12 @@ var session      = require('express-session');
 const bodyParser = require('body-parser');
 const db = require("./app/models/index.js");
 var models = require("./app/models");
-
-
+var authRoute = require('./app/routes/passport-routes.js')(app,passport);
 
 
 app.use(morgan('dev')); 
 app.use(cookieParser()); 
 app.use(bodyParser()); 
-
- 
 
 app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}));
 // app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); 
@@ -44,29 +37,21 @@ app.set('view engine', 'ejs');
 
 require('./config/passport.js')(passport,models.user);
 
-
-var authRoute = require('./app/routes/passport-routes.js')(app,passport);
-
-
-
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
-
- 
 
 app.use('/', html);
 app.use('/events', events);
 app.use('/locations', locations);
 
-
-models.sequelize.sync().then(function(){
+models.sequelize
+    .sync()
+    .then(function(){
     console.log('Nice! Database looks fine')
-
-    }).catch(function(err){
+    })
+    .catch(function(err){
     console.log(err,"Something went wrong with the Database Update!")
 });
-
-
 
 app.listen(PORT, function(err){
         if(!err)

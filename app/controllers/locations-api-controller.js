@@ -4,52 +4,27 @@ const Op = db.Sequelize.Op;
 module.exports = {
     
     getLocations: function(latRange, lngRange) {
-        return new Promise(function(resolve, reject) {  
-            db.Locations
-            .findAll({
-                // where: {
-                //     [Op.and]: [ 
-                //         {latitude: {[Op.between]: latRange}},
-                //         {longitude: {[Op.between]: lngRange}}
-                //     ]
-                // }
-            })
-            .then(function(result) {
-                resolve(result);
-            })
-            .catch(function(error) {
-                reject(error);
-            });
+        return db.Locations
+        .findAll({
+            where: {
+                [Op.and]: [ 
+                    {latitude: {[Op.between]: latRange}},
+                    {longitude: {[Op.between]: lngRange}}
+                ]
+            }
         });
     },
 
     addLocation: function(locationData) {
-        db.Locations
-        .create(locationData)
-        .then(function(result) {
-            return result;
-        });
-    },
-
-    updateLocation: function(locationData, id) {
-        db.Locations
-        .update(
-            locationData,
-            {where: {id}}
-        )
-        .then(function(result) {
-            return result;
-        });
+        return db.Locations
+        .create(locationData);
     },
 
     deleteLocation: function(id) {
-        db.Locations
+        return db.Locations
         .destroy(
             {where: {id}}
-        )
-        .then(function(result) {
-            return result;
-        });
+        );
     }
 }
 

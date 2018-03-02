@@ -2,13 +2,7 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/events-api-controller.js');
 
-
-// router.get('/events', function (req, res) {
-//     var events = controller.getEvents();
-//     res.body(events);
-// });
-
-router.post('/events', function (req, res) {
+router.post('/', function (req, res) {
     var result = controller.addEvent(
         req.body
     );
@@ -22,29 +16,17 @@ router.post('/events', function (req, res) {
     // }
 });
 
-router.put('/events/:id', function (req, res) {
-    var result = controller.updateEvent(
-        req.body,
+router.delete('/:id', function (req, res) {
+    controller.deleteEvent(
         req.params.id
-    );
-
-    if (result.changedRows == 0) {
-        res.send('PUT failed');
-    } else {
-        res.send('PUT succeeded');
-    }
-});
-
-router.delete('/events/:id', function (req, res) {
-    var result = controller.deleteEvent(
-        req.params.id
-    );
-
-    if (result.changedRows == 0) {
-        res.send('DELETE failed');
-    } else {
-        res.send('DELETE succeeded');
-    }
+    )
+    .then(function(result) {
+        if (result.changedRows == 0) {
+            res.send('DELETE failed');
+        } else {
+            res.send('DELETE succeeded');
+        }
+    });
 });
 
 module.exports = router;

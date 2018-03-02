@@ -136,6 +136,17 @@ h3 {
     margin-left: 2rem;
 }
 
+.delete {
+    float: right;
+}
+
+.delete:hover,
+.delete:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 /* @media */
 /* Small */
 @media (max-width: 768px) {

@@ -49,6 +49,7 @@ function getUserLocation(inputLocation) {
         if (parseFloat(inputLocation.lat) === 0) {
             geocode(inputLocation.address)
             .then(function(userLocation) {
+                userLocation.tz = inputLocation.tz;
                 resolve(userLocation);
             })
             .catch(function(error) {
@@ -58,6 +59,7 @@ function getUserLocation(inputLocation) {
         else {
             geocodeLatLong(inputLocation.lat, inputLocation.lng)
             .then(function(userLocation) {
+                userLocation.tz = inputLocation.tz;
                 resolve(userLocation);
             })
             .catch(function(error) {

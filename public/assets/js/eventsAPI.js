@@ -42,56 +42,50 @@ $(document).ready(function () {
             }
         );
     });
-
-    $('.delete').on('click', function (event) {
-        event.preventDefault();
-        id = $(this).data("id");
-
-        $.ajax({
-            url: '/events/' + id,
-            type: 'DELETE'
-        }).then(
-            function () {
-                console.log('Deleted id: ' + id);
-                location.reload();
-            }
-        );
-    });
 });
 
 function viewAPIEvents(arr) {
     arr.forEach(res => {
 
-        var cardDiv = $("<div>")
         var viewDiv = $("<div>");
         var titleDiv = $("<h5>");
         var dateDiv = $("<h6>");
         var descDiv = $("<p>");
         var addressDiv = $("<h6>");
-        var deleteLink = $("<a>");
+        var deleteSpan = $("<span>");
 
-        cardDiv.addClass("row col-12 card mb-3");
-        viewDiv.addClass("card-body");
-        titleDiv.addClass("card-title");
-        dateDiv.addClass("card-subtitle mb-2 text-muted");
-        descDiv.addClass("card-text");
-        addressDiv.addClass("card-subtitle mt-2 text-muted");
-        deleteLink.attr("href", "");
+        deleteSpan.addClass("delete");
+        viewDiv.addClass("col-12 mb-3");
+        dateDiv.addClass("text-muted");
+        addressDiv.addClass("text-muted");
+        descDiv.addClass("mb-3");
 
-        titleDiv.text("Title: " + res.title);
-        dateDiv.text("Date: " + res.date);
-        descDiv.text("Description: " + res.description);
-        addressDiv.text("Location: " + res.address);
-        deleteLink.data("id", res.id);
-        deleteLink.text("Delete");
+        titleDiv.text(res.title);
+        dateDiv.text(res.date);
+        descDiv.text(res.description);
+        addressDiv.text(res.address);
+        deleteSpan.attr("data-id", res.id);
+        deleteSpan.html("&times");
 
+        viewDiv.append(deleteSpan);
         viewDiv.append(titleDiv);
         viewDiv.append(dateDiv);
-        viewDiv.append(descDiv);
         viewDiv.append(addressDiv);
-        viewDiv.append(deleteLink);
-        cardDiv.append(viewDiv);
+        viewDiv.append(descDiv);
 
-        $('#upcomingEvents').append(cardDiv);
+        deleteSpan.on('click', function (event) {
+            event.preventDefault();
+    
+            $.ajax({
+                url: '/events/' + res.id,
+                type: 'DELETE'
+            }).then(
+                function () {
+                    getLocationData('', userLocation.lat, userLocation.lng);
+                }
+            );
+        });
+        
+        $('#upcomingEvents').append(viewDiv);
     });
 }
