@@ -8,11 +8,12 @@ function getViewingConditions(arr) {
         if (res) {
 
        
-
-       
         var resCloudCoverage = res.forecast.clouds.all;
         var resDesc = res.forecast.weather[0].description;
+        var resMain = res.forecast.weather[0].main
         var resFrom = new Date(res.from);
+
+        console.log(resMain)
         
 
         var convertedDate = "Date: " + resFrom.toDateString();
@@ -20,54 +21,50 @@ function getViewingConditions(arr) {
         var desc = "Conditions: " + res.forecast.weather[0].description;
 
         
-        var image = $("<img>");
         var viewDiv = $("<div>");
-        var cloudDiv = $("<h3>");
+        var picDiv = $("<h3>");
         var descDiv = $("<h3>");
-        var fromDiv = $("<h4>");
+        var fromDiv = $("<h3>");
 
 
         
         viewDiv.addClass("row col-12");
         viewDiv.addClass("viewCardClass");
-        cloudDiv.addClass("cloudClass")
+        picDiv.addClass("picClass")
         descDiv.addClass("descClass")
         fromDiv.addClass("fromClass")
-        cloudDiv.text(cloudCoverage);
         descDiv.text(desc);
         fromDiv.text(convertedDate)
 
         
 
-        // if (image.attr("src") === "") {
-        //     image.attr("src", "assets/images/random-image.jpg");
-        // }
-
-        if (resCloudCoverage === 0){
-            cloudDiv.html('<div class="icon sunny"><div class="sun"><div class="rays"></div></div></div>');
+        if (resMain == "Clear"){
+            picDiv.html('<div class="icon sunny"><div class="sun"><div class="rays"></div></div></div>');
         }
 
-        if (resCloudCoverage === 50){
-            cloudDiv.html('<div class="icon cloudy"><div class="cloud"></div><div class="cloud"></div></div>');
+        else if (resMain == "Clouds"){
+            picDiv.html('<div class="icon cloudy"><div class="cloud"></div><div class="cloud"></div></div>');
         }
-        // if (resCloudCoverage === "greenBlue"){
-        //     difficultyDiv.html('<h5><img src="assets/images/diffGreenBlue30.svg" id="difficultyImg"></h5>');
-        // }
-        // if (resCloudCoverage === "blue"){
-        //     difficultyDiv.html('<h5><img src="assets/images/diffBlue30.svg" id="difficultyImg"></h5>');
-        // }
-        // if (resCloudCoverage === "blueBlack"){
-        //     difficultyDiv.html('<h5><img src="assets/images/diffBlueBlack30.svg" id="difficultyImg"></h5>');
-        // }
-        // if (resCloudCoverage === "black"){
-        //     difficultyDiv.html('<h5><img src="assets/images/diffBlack30.svg" id="difficultyImg"></h5>');
-        // }
-        // if (resCloudCoverage === "dblack"){
-        //     difficultyDiv.html('<h5><img src="assets/images/diffBlack30.svg" id="difficultyImg"></h5>');
-        // }
+
+        else if (resMain == "Rain"){
+            picDiv.html('<div class="icon rainy"><div class="cloud"></div><div class="rain"></div></div>');
+        }
+
+        else if (resMain == "Thunderstorm"){
+            picDiv.html('<div class="icon thunder-storm"><div class="cloud"></div><div class="lightning"><div class="bolt"></div><div class="bolt"></div></div></div>');
+        }
+
+        else if (resMain == "Snow"){
+            picDiv.html('<div class="icon flurries"><div class="cloud"></div><div class="snow"><div class="flake"></div><div class="flake"></div></div></div>');
+        }
+
+         else {
+            picDiv.html('Picture Unavailabe');
+        }
+        
 
         viewDiv.append(fromDiv)
-        viewDiv.append(cloudDiv);
+        viewDiv.append(picDiv);
         viewDiv.append(descDiv);
 
         $('#viewingTimes').append(viewDiv);
