@@ -218,13 +218,14 @@ function getRiseSetTimesByWeek(userLocation) {
 
 function getRiseSetTimesByDay(userLocation, date) {
     return new Promise(function(resolve, reject) {
+        var timezone = userLocation.tz;
         var coords = userLocation.lat + ',' + userLocation.lng;
         var month = date.getMonth();
         var day =  date.getDate();
         var year = date.getFullYear();
         var dateFormatted = month + '/' + day + '/' + year;
         var queryURL = 'http://api.usno.navy.mil/rstt/oneday?date=';
-        queryURL += dateFormatted + '&coords=' + coords + '&tz=0';
+        queryURL += dateFormatted + '&coords=' + coords + '&tz=' + timezone;
 
         request(queryURL, function(error, response, body) {
             if (error) {

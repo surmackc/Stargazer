@@ -14,7 +14,8 @@ router.get('/userLocation', function (req, res) {
     // {
     //     address: 'XXX',
     //     lat: ###.####,
-    //     lng: ###.####
+    //     lng: ###.####,
+    //     tz: 5
     // }
 
     controller.getData(inputLocation)

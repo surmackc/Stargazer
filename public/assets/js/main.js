@@ -93,14 +93,15 @@ var goodTimes = [
 $(document).ready(function () {
     let defaultLat = '37.5381861';
     let defaultLng = '-77.5224841';
+    var timezone = (new Date().getTimezoneOffset())/60;
+
     // getLocationData('', defaultLat, defaultLng);    // Commenting this out until I need it
 
 
     $('#address-submit').on('click', function () {
         event.preventDefault();
         let address = $('#address-input').val().trim();
-        getLocationData(address, 0, 0);
-        console.log(address);
+        getLocationData(address, 0, 0, timezone);
     });
 
     $('#geolocate').on('click', function () {
@@ -110,7 +111,7 @@ $(document).ready(function () {
                 let address = '';
                 let lat = result.lat;
                 let lng = result.lng;
-                getLocationData('', lat, lng);
+                getLocationData('', lat, lng, timezone);
             })
             .catch(function (error) {
                 console.log(error);
@@ -176,8 +177,8 @@ function geolocate() {
     });
 };
 
-function getLocationData(address, lat, lng) {
-    let queryURL = '/userLocation?address=' + address + '&lat=' + lat + '&lng=' + lng;
+function getLocationData(address, lat, lng, timezone) {
+    let queryURL = '/userLocation?address=' + address + '&lat=' + lat + '&lng=' + lng + '&tz=' + timezone;
     queryURL = encodeURI(queryURL);
     $.ajax({
         url: queryURL,
