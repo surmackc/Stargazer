@@ -1,5 +1,8 @@
 function viewRiseSetTimes(res) {
     $('#moonPhaseText').empty();
+    $('#moonPhaseDate').empty();
+    $('#moonPhaseTextRise').empty();
+    $('#moonPhaseTextSet').empty();
 
     
     var closestPhase = res[0].closestphase.phase;
@@ -15,7 +18,7 @@ function viewRiseSetTimes(res) {
 
     viewDiv.addClass("row col-12");
     phaseDiv.text("Closest moon phase: " + closestPhase);
-    dateDiv.text("Occurrence: " + closestDate);
+    dateDiv.text("Occurrance: " + closestDate);
     riseDiv.text("Moonrise Today: " + rise);
     setDiv.text("Moonset Today: " + set);
 
@@ -23,6 +26,9 @@ function viewRiseSetTimes(res) {
     viewDiv.append(dateDiv);
     // viewDiv.append(riseDiv);
     // viewDiv.append(setDiv);
+
+    $('#moonPhaseTextRise').prepend('<img id="moonPhaseImage" src="/assets/img/moon_rise.svg">')
+    $('#moonPhaseTextSet').prepend('<img id="moonPhaseImage" src="/assets/img/moon_set.svg">')
 
     $('#moonPhaseText').append(phaseDiv);
     $('#moonPhaseDate').append(dateDiv);
