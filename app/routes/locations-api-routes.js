@@ -2,7 +2,17 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/locations-api-controller.js')
 
+// router.get('/', function(req, res) {
+//     if (req.user) {
+//         res.send('isLoggedIn');
+//     } else {
+//         res.send('isNotLoggedIn');
+//     }
+// });
+
 router.post('/', function (req, res) {
+    console.log(req.body);
+    
     controller.addLocation(
         req.body
     );

@@ -2,10 +2,23 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/events-api-controller.js');
 
+// router.get('/', function(req, res) {
+//     console.log(req.user);
+//     if (req.user) {
+//         res.send('isLoggedIn');
+//     } else {
+//         res.send('isNotLoggedIn');
+//     }
+// });
+
 router.post('/', function (req, res) {
-    var result = controller.addEvent(
+    console.log(req.body);
+
+    controller.addEvent(
         req.body
-    );
+    ).then(function(result) {
+
+    });
 
     // check something in result
     // to decide if successful or not

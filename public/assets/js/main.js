@@ -115,3 +115,32 @@ function getLocationData(address, lat, lng, timezone) {
     });
 }
 
+function addEvent() {
+    // queryURL = "/events/"
+    // $.ajax({
+    //     url: queryURL,
+    //     type: 'GET'
+    // }).done(function(res) {
+    //     console.log(res);
+    //     if (res === 'isLoggedIn') {
+            $('#addEvent').modal();
+    //     } else {
+    //         alert('You must be logged in to add new events');
+    //     }
+    // }); 
+}
+
+function addLocation() {
+    // queryURL = "/locations/"
+    // $.ajax({
+    //     url: queryURL,
+    //     type: 'GET'
+    // }).done(function(res) {
+    //     console.log(res);
+    //     if (res === 'isLoggedIn') {
+            $('#addLocation').modal();
+        // } else {
+        //     alert('You must be logged in to add new spots');
+        // }
+    // }); 
+}
