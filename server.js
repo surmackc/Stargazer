@@ -19,7 +19,7 @@ var session      = require('express-session');
 const bodyParser = require('body-parser');
 const db = require("./app/models/index.js");
 var models = require("./app/models");
-var authRoute = require('./app/routes/passport-routes.js')(app,passport);
+
 
 
 app.use(morgan('dev')); 
@@ -31,6 +31,8 @@ app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
+
+var authRoute = require('./app/routes/passport-routes.js')(app,passport);
 
 app.set('view engine', 'ejs');
 

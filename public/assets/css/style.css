@@ -187,6 +187,7 @@ h5 {
   height: 1em;
   font-size: 0.4em; /* control icon size here */
   margin: 0.4rem;
+  margin-top: 50px;
 }
 
 .cloud {
@@ -406,6 +407,7 @@ h5 {
 .descClass {
     border-bottom: solid 1px rgba(255, 255, 255, 0.500);
     padding-bottom: .5rem;
+    margin-right: 170px;
 }
 
 .modal-body {
