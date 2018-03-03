@@ -408,6 +408,10 @@ h5 {
     padding-bottom: .5rem;
 }
 
+.modal-body {
+    color: #fff;
+}
+
 
 /* Animations */ 
 
