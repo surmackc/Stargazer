@@ -118,8 +118,10 @@ h3 {
     margin-left: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    padding: 1rem;
     border-radius: 3px;
     width: 80%;
+    
 
 }
 #celEventTitle{
@@ -129,7 +131,6 @@ h3 {
     font-weight: 100;
     width: 100%;
     margin-top: 1rem;
-    margin-left: 1rem;
     margin-bottom: .5rem;
 }
 #celEventDesc {
