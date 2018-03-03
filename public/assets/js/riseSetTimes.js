@@ -15,7 +15,7 @@ function viewRiseSetTimes(res) {
 
     viewDiv.addClass("row col-12");
     phaseDiv.text("Closest moon phase: " + closestPhase);
-    dateDiv.text("Occurrance: " + closestDate);
+    dateDiv.text("Occurrence: " + closestDate);
     riseDiv.text("Moonrise Today: " + rise);
     setDiv.text("Moonset Today: " + set);
 
