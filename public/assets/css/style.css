@@ -46,7 +46,7 @@ h3 {
     padding-bottom: .5rem;
     border-bottom: solid 1px rgba(255, 255, 255, 0.500);
 }
-.contentContainer {
+.contentContainer, .jumbotron {
     margin-top: 1rem;
     padding-bottom: 1rem;
     border-radius: 7px;
@@ -137,12 +137,16 @@ h3 {
     margin-left: 2rem;
 }
 
-.delete {
+.delete, .add-event, .add-location {
     float: right;
 }
 
 .delete:hover,
-.delete:focus {
+.delete:focus, 
+.add-event:hover,
+.add-event:focus, 
+.add-location:hover,
+.add-location:focus {
     text-decoration: none;
     cursor: pointer;
 }
