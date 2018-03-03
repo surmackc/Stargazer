@@ -29,6 +29,18 @@ h3 {
     color: #ffffff;
     font-weight: 100;
 }
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 100;
+}
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 100;
+}
 #headerSection{
     margin-top: 1rem;
 }
@@ -71,6 +83,20 @@ h3 {
 .loginIcon{
     margin-right: .5rem;
     width: 45px;   
+}
+#moonPhaseImage{
+  width: 85px;
+}
+#moonPhaseText, #moonPhaseDate {
+  text-align: center;
+  margin-top: 2rem;
+}
+#moonPhaseDate {
+  margin-bottom: 1rem;
+}
+#moonPhaseTextRise, #moonPhaseTextSet {
+  margin-bottom: 2rem;
+  text-align: center;
 }
 .btn-collapseButton { 
     color: #ffffff; 
@@ -149,11 +175,12 @@ h3 {
 
 
 
+
 .icon {
   position: relative;
   display: inline-block;
-  width: 12em;
-  height: 10em;
+  width: 1.3em;
+  height: 1em;
   font-size: 1em; /* control icon size here */
 }
 

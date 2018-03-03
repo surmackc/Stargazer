@@ -21,10 +21,13 @@ function viewRiseSetTimes(res) {
 
     viewDiv.append(phaseDiv);
     viewDiv.append(dateDiv);
-    viewDiv.append(riseDiv);
-    viewDiv.append(setDiv);
+    // viewDiv.append(riseDiv);
+    // viewDiv.append(setDiv);
 
-    $('#moonPhaseText').append(viewDiv);
+    $('#moonPhaseText').append(phaseDiv);
+    $('#moonPhaseDate').append(dateDiv);
+    $('#moonPhaseTextRise').append(riseDiv);
+    $('#moonPhaseTextSet').append(setDiv);
 
 
 
