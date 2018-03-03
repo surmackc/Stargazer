@@ -185,7 +185,8 @@ h5 {
   display: inline-block;
   width: 1.3em;
   height: 1em;
-  font-size: 1em; /* control icon size here */
+  font-size: 0.4em; /* control icon size here */
+  margin: 0.4rem;
 }
 
 .cloud {
